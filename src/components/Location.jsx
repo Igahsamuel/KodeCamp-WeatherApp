@@ -2,8 +2,7 @@ import { useContext } from "react";
 import { CloudContext } from "../context/Cloud";
 
 function Location() {
-  const { permissionStatus, userLocation, locationEnabled } =
-    useContext(CloudContext);
+  const { permissionStatus, userLocation } = useContext(CloudContext);
 
   if (userLocation.length > 0) {
     const place = userLocation[userLocation.length - 1];
