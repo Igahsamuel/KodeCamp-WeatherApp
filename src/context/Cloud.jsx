@@ -27,7 +27,7 @@ export default function CloudProvider({ children }) {
     e.preventDefault();
     try {
       const fetchApi = async () => {
-        const apiKey = "dc794d5251cd1921a8d9a8dff70ed4de";
+        const apiKey = import.meta.env.VITE_SECRET_KEY;
         const city = searchBar;
         const response = await fetch(
           `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
@@ -70,7 +70,7 @@ export default function CloudProvider({ children }) {
   };
 
   const fetchApi = async (latitude, longitude) => {
-    const apiKey = "fedd3f2433e65c113271998ca28f0541";
+    const apiKey = import.meta.env.VITE_SECRET_KEY;
 
     try {
       const response = await fetch(

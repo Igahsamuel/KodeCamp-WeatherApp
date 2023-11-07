@@ -18,7 +18,7 @@ function SearchedLocation() {
                 <h2 className="text-[30px] font-bold">
                   {clouds?.city}, {clouds.data.sys?.country}
                 </h2>
-                <p>
+                <div>
                   <p>
                     <span>
                       {new Date().toLocaleString("en-US", {
@@ -32,7 +32,7 @@ function SearchedLocation() {
                       })}
                     </span>
                   </p>
-                </p>
+                </div>
               </div>
               <div>
                 <button className="text-white bg-blue-500 px-4 py-3 rounded my-3">

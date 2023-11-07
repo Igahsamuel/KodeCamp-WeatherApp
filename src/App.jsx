@@ -6,8 +6,12 @@ import { useContext } from "react";
 import SavedLocation from "./components/SavedLocation";
 
 function App() {
-  // const { weather } = useContext(CloudContext);
-  // console.log(weather);
+  const { weatherData } = useContext(CloudContext);
+  if (weatherData.length > 0) {
+    const currentWeather = weatherData[weatherData.length - 1];
+    console.log(currentWeather.data.weather.map((item) => item.main));
+  }
+  console.log(weatherData);
 
   return (
     <div>
