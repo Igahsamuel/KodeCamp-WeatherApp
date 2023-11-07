@@ -4,7 +4,7 @@
 
 @media screen and (min-width: 769px) {
   .image-onLocation {
-    background-image: url("src/images/location.jpg");
+    background-image: url("/src/images/location.jpg");
     background-size: cover;
     height: 100vh;
     background-repeat: no-repeat;
@@ -15,7 +15,7 @@
 
 @media screen and (max-width: 768px) {
   .image-onLocation {
-    background-image: url("src/images/location.jpg");
+    background-image: url("/src/images/location.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -25,7 +25,7 @@
 }
 
 .image-cloudy {
-  background-image: url("src/images/cloudy.jpg");
+  background-image: url("/src/images/cloudy.jpg");
   background-size: cover;
   height: 100vh;
   background-repeat: no-repeat;
@@ -34,7 +34,7 @@
 }
 
 .image-rainy {
-  background-image: url("src/images/rain.jpg");
+  background-image: url("/src/images/rain.jpg");
   background-size: cover;
   height: 100vh;
   background-repeat: no-repeat;
