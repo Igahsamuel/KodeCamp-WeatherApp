@@ -43,9 +43,9 @@ function SearchedLocation() {
             <div className="flex flex-col md:flex-row justify-between">
               <div className="flex flex-col md:flex-row justify-between gap-[40px] items-center my-3">
                 {clouds.data.weather.some((item) => item.main === "Rain") ? (
-                  <img src="/src/svg/raincloud.svg" alt="Rain" />
+                  <img src="src/svg/raincloud.svg" alt="Rain" />
                 ) : (
-                  <img src="/src/svg/smiling-cloud.svg" alt="Not Rain" />
+                  <img src="src/svg/smiling-cloud.svg" alt="Not Rain" />
                 )}
 
                 {console.log(
