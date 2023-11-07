@@ -38,29 +38,12 @@ function Location() {
   } else {
     return (
       <div>
-        {permissionStatus === "prompt" && (
-          <div>
-            <p>Your location is not enabled. please enable it</p>
-            <button
-              onClick={locationEnabled}
-              className="bg-blue-300 px-2 py-2 rounded hover:bg-blue-500"
-            >
-              Enable Location
-            </button>
-          </div>
-        )}
         {permissionStatus === "denied" && (
           <div>
             <p className="text-[24px] lg:w-[700px]">
               Failed to fetch weather of current location. Check your internet
               connectivity or enable your location
             </p>
-            <button
-              onClick={locationEnabled}
-              className="bg-blue-300 px-2 py-2 rounded hover:bg-blue-500"
-            >
-              Enable Location
-            </button>
           </div>
         )}
         {permissionStatus === "unsupported" && (

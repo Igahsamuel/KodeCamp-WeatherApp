@@ -86,31 +86,23 @@ export default function CloudProvider({ children }) {
 
   const locationEnabled = () => {
     if ("geolocation" in navigator) {
-      navigator.permissions.query({ name: "geolocation" }).then((result) => {
-        if (result.state === "granted") {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          fetchApi(latitude, longitude);
           setPermissionStatus("granted");
-          navigator.geolocation.getCurrentPosition(
-            (position) => {
-              const { latitude, longitude } = position.coords;
-              fetchApi(latitude, longitude);
-            },
-            (error) => {
-              setPermissionStatus("denied");
-            }
-          );
-        } else if (result.state === "prompt") {
-          setPermissionStatus("prompt");
-        } else {
+        },
+        (error) => {
           setPermissionStatus("denied");
         }
-      });
+      );
     } else {
       setPermissionStatus("unsupported");
     }
   };
   useEffect(() => {
     locationEnabled();
-  }, []);
+  }, [setPermissionStatus]);
 
   return (
     <CloudContext.Provider
