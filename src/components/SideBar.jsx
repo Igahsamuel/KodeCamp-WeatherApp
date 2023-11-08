@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import SearchedDetails from "./SearchedDetails";
 import SearchedList from "./SearchedList";
 import { CloudContext } from "../context/Cloud";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 function SideBar() {
   const {
@@ -13,6 +13,16 @@ function SideBar() {
     setSearchBar,
     weatherData,
   } = useContext(CloudContext);
+
+  const navigate = useNavigate();
+
+  const handleSearch = async (e) => {
+    const data = await handleSubmit(e);
+    console.log({ data });
+    if (data) {
+      navigate(`/search-result/${data.name}`);
+    }
+  };
 
   // useEffect(() => {
   //   console.log(cityName);
@@ -27,7 +37,10 @@ function SideBar() {
           value={searchBar}
           onChange={(e) => setSearchBar(e.target.value)}
         />
-        <button className="absolute top-1 right-2 bg-blue-500 text-white px-2 py-2 rounded text-[15px]">
+        <button
+          className="absolute top-1 right-2 bg-blue-500 text-white px-2 py-2 rounded text-[15px]"
+          onClick={handleSearch}
+        >
           Search
         </button>
       </form>

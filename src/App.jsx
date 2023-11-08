@@ -20,7 +20,7 @@ function App() {
       currentImage = imageBackground[0];
     }
     console.log(currentImage === "Clouds");
-    console.log(userLocation);
+    // console.log(userLocation);
   }
   return (
     <div>
@@ -30,6 +30,8 @@ function App() {
             ? "image-cloudy"
             : currentImage === "Rain" && permissionStatus === "granted"
             ? "image-rainy"
+            : currentImage === "Clear" && permissionStatus === "granted"
+            ? "image-clear"
             : permissionStatus === "denied"
             ? "image-onLocation"
             : "image-onLocation"

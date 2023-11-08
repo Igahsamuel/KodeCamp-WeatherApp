@@ -6,8 +6,12 @@ import ArrowLeft from "../components/ArrowLeft";
 function SearchedLocation() {
   const { weatherData } = useContext(CloudContext);
   const { city } = useParams();
-  const clouds = weatherData.find((item) => item.city === city);
+  console.log(city);
+  const clouds = weatherData.find(
+    (item) => item.city.toLowerCase() === city.toLowerCase()
+  );
 
+  console.log(clouds);
   return (
     <div>
       <div className="flex flex-col lg:flex-row items-center justify-center md:h-screen my-4 ">
@@ -16,7 +20,7 @@ function SearchedLocation() {
           <div className="flex flex-col md:flex-row justify-between my-4 items-center">
             <div className="text-center md:text-start">
               <h2 className="text-[30px] font-bold">
-                {clouds?.city}, {clouds.data.sys?.country}
+                {clouds?.city}, {clouds.data?.sys?.country}
               </h2>
               <div>
                 <p>
@@ -40,8 +44,8 @@ function SearchedLocation() {
               </button>
             </div>
           </div>
-          <div className="flex flex-col md:flex-row justify-evenly gap-10">
-            <div className="flex flex-col md:flex-row justify-between  items-center my-3">
+          <div className="flex flex-col md:flex-row justify-between gap-10">
+            <div className="flex flex-col md:flex-row justify-between  items-center my-3 gap-2">
               {clouds.data.weather.some((item) => item.main === "Rain") ? (
                 <img src="/svg/raincloud.svg" alt="Rain" />
               ) : (
@@ -59,7 +63,7 @@ function SearchedLocation() {
               </div>
             </div>
             <div className="border-l border-solid"></div>
-            <div className="flex flex-col gap-10 items-center">
+            <div className="flex flex-col gap-10 items-center mt-9">
               <div className="flex gap-7">
                 <div className="flex flex-col items-center">
                   <span>

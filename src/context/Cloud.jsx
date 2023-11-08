@@ -13,6 +13,7 @@ export default function CloudProvider({ children }) {
   const [userLocation, setUserLocation] = useState([]);
 
   useEffect(() => {
+    console.log("Weather data updfated", weatherData);
     localStorage.setItem("weatherData", JSON.stringify(weatherData));
   }, [weatherData]);
 
@@ -27,6 +28,7 @@ export default function CloudProvider({ children }) {
     e.preventDefault();
     try {
       const fetchApi = async () => {
+        console.log("fetching");
         const apiKey = import.meta.env.VITE_SECRET_KEY;
         const city = searchBar;
         const response = await fetch(
@@ -34,17 +36,20 @@ export default function CloudProvider({ children }) {
         );
         if (response.ok) {
           const data = await response.json();
+
           // const cityData = { ...data, name: city };
           // setCityName((prevState) => [...prevState, city]);
           setWeatherData((prevState) => [...prevState, { city, data }]);
           // console.log(cityData);
           console.log(data);
           setSearchBar("");
+
+          return data;
         } else {
           console.log("Failed to fetch Api");
         }
       };
-      fetchApi();
+      return fetchApi();
     } catch (error) {
       console.log("failed to fetch Api");
       setSearchBar("");

@@ -28,6 +28,14 @@
     background-position: center;
     background-attachment: fixed;
   }
+  .image-clear {
+    background-image: url("/src/images/clear.jpg");
+    background-size: cover;
+    /* height: 100vh; */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -54,6 +62,15 @@
     background-image: url("/src/images/rain.jpg");
     background-size: cover;
     /* height: auto; */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+  }
+  .image-rainy {
+    background-image: url("/src/images/clear.jpg");
+    background-size: cover;
+    /* height: 100vh; */
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
