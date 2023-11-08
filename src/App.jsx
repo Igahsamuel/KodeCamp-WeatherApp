@@ -6,24 +6,24 @@ import { useContext } from "react";
 import SavedLocation from "./components/SavedLocation";
 
 function App() {
-  const { weatherData } = useContext(CloudContext);
-  if (weatherData.length > 0) {
-    const currentWeather = weatherData[weatherData.length - 1];
-    console.log(currentWeather.data.weather.map((item) => item.main));
-  }
-  console.log(weatherData);
+  const { weatherData, permissionStatus } = useContext(CloudContext);
+  const currentWeather = weatherData[weatherData.length - 1];
+  const imageBackground = currentWeather.data.weather.map((item) => item.main);
+  const currentImage = imageBackground[0];
+  console.log(currentImage === "Clouds");
 
   return (
     <div>
-      {/* {weather.map((condition, index) => ( */}
       <div
-        // key={index}
-        // className={`text-white overflow-hidden relative ${
-        //   condition.data.weather.some((item) => item.main === "Clouds")
-        //     ? "image-cloudy"
-        //     : "image-rainy"
-        // }`}
-        className="text-white lg:overflow-hidden relative image-onLocation"
+        className={`text-white lg:overflow-hidden relative ${
+          currentImage === "Clouds" && permissionStatus === "granted"
+            ? "image-cloudy"
+            : currentImage === "Rain" && permissionStatus === "granted"
+            ? "image-rainy"
+            : permissionStatus === "denied"
+            ? "image-onLocation"
+            : "image-onLocation"
+        }`}
       >
         <Router>
           <Routes>
