@@ -40,7 +40,7 @@ function SearchedLocation() {
               </button>
             </div>
           </div>
-          <div className="flex flex-col md:flex-row justify-between">
+          <div className="flex flex-col md:flex-row justify-evenly gap-10">
             <div className="flex flex-col md:flex-row justify-between  items-center my-3">
               {clouds.data.weather.some((item) => item.main === "Rain") ? (
                 <img src="/svg/raincloud.svg" alt="Rain" />
