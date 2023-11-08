@@ -5,7 +5,7 @@ function SearchedList({ items, onDelete }) {
   console.log(items.data.id);
   return (
     <li className="flex justify-between items-center my-2">
-      <Link to="/search-result">
+      <Link to={`/search-result/${items?.city}`}>
         <h2>{items?.city}</h2>
       </Link>
       <button

@@ -28,7 +28,7 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<Main />} />
-            <Route path="/search-result" element={<SearchedLocation />} />
+            <Route path="/search-result/:city" element={<SearchedLocation />} />
             <Route path="/saved-location" element={<SavedLocation />} />
           </Routes>
         </Router>
