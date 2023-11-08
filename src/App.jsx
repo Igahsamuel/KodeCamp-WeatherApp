@@ -6,11 +6,12 @@ import { useContext } from "react";
 import SavedLocation from "./components/SavedLocation";
 
 function App() {
-  const { weatherData, permissionStatus } = useContext(CloudContext);
-  const currentWeather = weatherData[weatherData.length - 1];
-  const imageBackground = currentWeather.data.weather.map((item) => item.main);
+  const { userLocation, permissionStatus } = useContext(CloudContext);
+  const currentWeather = userLocation[userLocation.length - 1];
+  const imageBackground = currentWeather.weather.map((item) => item.main);
   const currentImage = imageBackground[0];
   console.log(currentImage === "Clouds");
+  console.log(userLocation);
 
   return (
     <div>

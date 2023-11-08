@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function SearchedList({ items, onDelete }) {
   // console.log(name);
-  console.log(items.data.id);
+
   return (
     <li className="flex justify-between items-center my-2">
       <Link to={`/search-result/${items?.city}`}>
